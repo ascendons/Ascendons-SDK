@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/Ascendons-SDK.iml" filepath="$PROJECT_DIR$/.idea/Ascendons-SDK.iml" />
-      <module fileurl="file://$PROJECT_DIR$/vision/vision.iml" filepath="$PROJECT_DIR$/vision/vision.iml" />
     </modules>
   </component>
 </project>
