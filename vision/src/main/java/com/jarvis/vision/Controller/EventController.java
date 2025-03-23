@@ -16,7 +16,7 @@ public class EventController {
 
     @PostMapping("/event")
     public ResponseEntity<String> publishEvent(@RequestBody EventRequest event) {
-        eventProducer.sendEvent(event.getEventId(), event.getPayload());
+        eventProducer.sendEvent(event.getEventId(), event);
         return ResponseEntity.ok("Event sent successfully!");
     }
 }
