@@ -1,7 +1,6 @@
 package com.jarvis.vision.service;
 
 import com.jarvis.vision.dto.EventRequest;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
@@ -10,12 +9,15 @@ import java.io.Serializable;
 @Service
 public class EventProducer implements Serializable {
 
-    private static final String TOPIC = "test-topic";
+    private static final String TOPIC = "my-topic";
 
-    @Autowired
-    private KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public void sendEvent(String eventId, EventRequest message) {
-        kafkaTemplate.send(TOPIC, eventId, message.toString());
+    public EventProducer(KafkaTemplate<String, String> kafkaTemplate) {
+        this.kafkaTemplate = kafkaTemplate;
+    }
+
+    public void sendEvent(EventRequest event) {
+        kafkaTemplate.send(TOPIC, event.getEventId(), event.getUserId());
     }
 }
